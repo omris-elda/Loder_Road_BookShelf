@@ -1,0 +1,4 @@
+To edit, first make sure that Python is installed.
+On Windows, go here (https://www.python.org/downloads/) to download python.
+Use py -0 in VS Codes terminal to see what version (if any) of python you have installed
+To ensure you've got git installed, use git --version to see the version of git installed
