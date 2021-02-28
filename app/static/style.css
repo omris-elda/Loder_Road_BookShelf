@@ -1,0 +1,22 @@
+body {
+    /* background-image: url("https://img1.wsimg.com/isteam/stock/100620"); */
+    background-color: white;
+    color: black;
+}
+
+
+body span {
+    background-color: white;
+}
+
+p{
+    display:inline;
+    background-color: white;
+    color: black;
+}
+
+a[href]{
+    display:inline;
+    background-color: white;
+    color: black;
+}

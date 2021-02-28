@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>{{ genre.genre_name }}</h1>
+    {% for book in books %}
+        {% include "_book.html" %}
+    {% endfor %}
+
+{% endblock %}

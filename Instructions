@@ -1,0 +1,68 @@
+To ensure that python is installed, run python3 in the terminal which will bring up the
+interactive prompt. To exit this, you can type exit() or press Ctrl-Z followed by enter.
+Alternatively, use python --version to see your current version of python installed.
+
+-- Activating the virtual environment
+Inside your main directory (in this case, in the Loder Road Bookshelf folder)
+type python -m venv venv to create a virtual environment folder called venv,
+and then run either >>source venv/bin/activate (for Linux), or >>source venv/Scripts/activate (for
+Windows)
+
+-- Installing modules
+Make sure you're in your venv by following the instructions above, and then input
+pip install <module> for example, pip install flask
+
+-- Setting variables
+Use >>set VAR_NAME=VAR_VALUE on Windows,
+or >>export VAR_NAME=VAR_VALUE on Linux
+
+To automatically have variables set, you can register them using the python-dotenv module.
+Install it using pip, and then write the environment variable name and value in 
+a .flaskenv file in the top level directory of the project. This saves you having to reset it every
+time you open the terminal.
+
+-- Required variables
+For testing/development:
+FLASK_APP=loder_road.py
+FLASK_DEBUG=1
+
+Testing email server stuff:
+MAIL_SERVER=localhost
+MAIL_PORT=8025
+
+For production environment:
+Email stuff (using Gmail):
+MAIL_SERVER=smtp.googlemail.com
+MAIL_PORT=587
+MAIL_USE_TLS=1
+MAIL_USERNAME=<your-gmail-username>
+MAIL_PASSWORD=<your-gmail-password>
+
+
+
+-- Running the application
+Set the variable FLASK_APP to your top tier python script, in this case loder_road.py.
+This would look like >>set FLASK_APP=loder_road.py on Windows,
+or >>export FLASK_APP=loder_road.py on Linux.
+After that, just use >>flask run to start your application.
+
+-- Databases
+Once you've got at least one model in your models.py file, you can start making the database.
+To create the migration repo, run >>flask db init
+Once that's done, run >>flask db migrate
+in order to start the creation of the table(s)
+Then, >>flask db upgrade
+to actually apply the changes to your database
+
+-- Lots of modules!
+If you've got lots of modules to install with pip, rather than doing them one at a time you
+can use >>pip freeze > requirements.txt which will put your installed modules into a text file.
+Then you can use >>pip install -r requirements.txt to install them again later if needed.
+
+-- Debugging
+Use >>set FLASK_DEBUG=1 (or >>export FLASK_DEBUG=1 on Linux) to turn on
+debug mode, which will give you better info when an error occurs
+
+-- Testing email error reporting functionality
+Ensure that the appropriate variables have been set
+Open a second terminal and run >>python -m smtpd -n -c DebuggingServer localhost:8025

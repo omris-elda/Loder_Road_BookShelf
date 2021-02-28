@@ -1,0 +1,9 @@
+<table>
+    <tr valign="top">
+        <td><img src="{{ book.owner.avatar(36) }}"></td>
+        <tb><b><a href="{{ url_for('view_book', book_id = book.book_id) }}">{{ book.book_title }}</a></b> by: {{ book.book_author }}<br></tb>
+        <tb>Owned by: <a href="{{ url_for('user', username = book.owner.username) }}">{{ book.owner.username }}</a><br></tb>
+        <tb>{{ book.book_description }}<br></tb>
+        <tb>{{ book.genre.genre_name }}</tb>
+    </tr>
+</table>
